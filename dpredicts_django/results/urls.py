@@ -7,4 +7,5 @@ router.register(r'results', views.PredictionResultViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('results/', views.PredictionResultListView.as_view(), name='prediction-result-list'),
 ]

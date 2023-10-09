@@ -49,8 +49,8 @@ const routes = [
     props: (route) => ({ predictions: route.params.predictions }),
   },
   {
-    path: '/resultslist',
-    name: 'resultslist',
+    path: '/result-list',
+    name: 'ResultsList',
     component: ResultList,
   }
 ]
