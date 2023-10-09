@@ -13,55 +13,55 @@
                 <h1 class="title">Predict</h1>
                 <h5>Please enter patient data</h5>
 
-                <form>
+                <form @submit.prevent="predict">
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Age" class="input" v-model="age">
+                          <input type="text" placeholder="Age" class="input" v-model="formData.age">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Sex" class="input" v-model="sex">
+                          <input type="text" placeholder="Sex" class="input" v-model="formData.sex">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Cholesterol Status" class="input" v-model="chol">
+                          <input type="text" placeholder="Cholesterol Status" class="input" v-model="formData.highChol">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="BMI" class="input" v-model="bmi">
+                          <input type="text" placeholder="BMI" class="input" v-model="formData.bmi">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="A smoker" class="input" v-model="smoke">
+                          <input type="text" placeholder="A smoker" class="input" v-model="formData.smoker">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Heart patient?" class="input" v-model="heart">
+                          <input type="text" placeholder="Heart patient?" class="input" v-model="formData.heartDiseaseorAttack">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Active?" class="input" v-model="physical">
+                          <input type="text" placeholder="Active?" class="input" v-model="formData.physActivity">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Alchoholic?" class="input" v-model="alcohol">
+                          <input type="text" placeholder="Alchoholic?" class="input" v-model="formData.hvyAlcoholConsump">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Generalhealth" class="input" v-model="health">
+                          <input type="text" placeholder="Generalhealth" class="input" v-model="formData.genHlth">
                       </div>
                   </div>
                   <div class="field">
                       <div class="control">
-                          <input type="text" placeholder="Mentalhealth" class="input" v-model="mentalh">
+                          <input type="text" placeholder="Mentalhealth" class="input" v-model="formData.mentHlth">
                       </div>
                   </div>
 
@@ -70,19 +70,58 @@
                           <button class="button">Submit</button>
                       </div>
                   </div>
-                
+                  <Result :predictions="predictions" />
                 </form>
-
               </div>
 
             </div>
           </div>
         </div>
-
     </div>
 </template>
 <script>
-
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      formData: {
+        age: null,
+        sex: null,
+        highChol: null,
+        bmi: null,
+        smoker: null,
+        heartDiseaseorAttack: null,
+        physActivity: null,
+        hvyAlcoholConsump: null,
+        genHlth: null,
+        mentHlth: null
+      },
+    };
+  },
+  methods: {
+    async predict() {
+      const formData = {
+        Age: this.formData.age,
+        Sex: this.formData.sex,
+        HighChol: this.formData.highChol,
+        BMI: this.formData.bmi,
+        Smoker: this.formData.smoker,
+        HeartDiseaseorAttack: this.formData.heartDiseaseorAttack,
+        PhysActivity: this.formData.physActivity,
+        HvyAlcoholConsump: this.formData.hvyAlcoholConsump,
+        GenHlth: this.formData.genHlth,
+        MentHlth: this.formData.mentHlth
+      };
+      try {
+        const response = await axios.post('/api/v1/predictions/', formData);
+        // After prediction, redirect to the result page with predictions as a string
+        this.$router.push({ name: 'results', query: { predictions: JSON.stringify(response.data) } });
+      } catch (error) {
+        console.error('Prediction failed:', error);
+      }
+    },
+  },
+};
 </script>
 <style lang="scss">
 html, body {

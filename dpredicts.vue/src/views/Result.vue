@@ -1,4 +1,4 @@
-<template>
+<!--<template>
     <div class="page-prediction bg-prediction">
         <div class="content">
             <div class="left-panel">
@@ -50,4 +50,40 @@
 
         </div>
     </div>
+</template>-->
+<!-- result.vue -->
+<template>
+  <div class="result-page">
+    <h1 class="title">Prediction Results</h1>
+
+    <div class="prediction" v-if="parsedPredictions">
+      <p>Diabetes Prediction: {{ parsedPredictions.Diabetes }}</p>
+      <p>Hypertension Prediction: {{ parsedPredictions.Hypertension }}</p>
+      <p>Stroke Prediction: {{ parsedPredictions.Stroke }}</p>
+    </div>
+  </div>
 </template>
+  
+<script>
+export default {
+  props: {
+  },
+  data() {
+    return {
+      parsedPredictions: {}, // Initialize parsedPredictions as an empty Object
+    };
+  },
+  created() {
+  const predictionsString = this.$route.query.predictions;
+  if (predictionsString) {
+    try {
+      this.parsedPredictions = JSON.parse(predictionsString);
+    } catch (error) {
+      console.error('Failed to parse predictions:', error);
+    }
+  }
+},
+};
+</script>
+
+  

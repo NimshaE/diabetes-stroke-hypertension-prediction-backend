@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <h1>This is my result</h1>
+
+    <p>Diabetes Prediction: {{ diabetes_prediction }}</p>
+    <p>Hypertension Prediction: {{ hypertension_prediction }}</p>
+    <p>Stroke Prediction: {{ stroke_prediction }}</p>
+
+    <a href="{% url 'predict' %}">Check another patient</a>
 </body>
 </html>

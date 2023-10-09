@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+  This is my predict
+
+    <form action="{% url 'result' %}">
+
+        {% csrf_token %}
+
+        Age: <input type="text" required name="Age"><br><br>
+        Sex: <input type="text" required name="Sex"><br><br>
+        HighChol: <input type="text" required name="HighChol"><br><br>
+        BMI: <input type="text" required name="BMI"><br><br>
+        Smoker: <input type="text" required name="Smoker"><br><br>
+        HeartDiseaseorAttack: <input type="text" required name="HeartDiseaseorAttack"><br><br>
+        PhysActivity: <input type="text" required name="PhysActivity"><br><br>
+        HvyAlcoholConsump: <input type="text" required name="HvyAlcoholConsump"><br><br>
+        GenHlth: <input type="text" required name="GenHlth"><br><br>
+        MentHlth: <input type="text" required name="MentHlth"><br><br>
+
+        <input type="submit" name="" value="submit">
+    </form>
 </body>
 </html>
