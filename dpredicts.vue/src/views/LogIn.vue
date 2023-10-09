@@ -69,7 +69,7 @@ export default {
         }
     },
     mounted() {
-        document.title = 'Log In | Djackets'
+        document.title = 'Log In | ACTCLINICA'
     },
     methods: {
         async submitForm() {

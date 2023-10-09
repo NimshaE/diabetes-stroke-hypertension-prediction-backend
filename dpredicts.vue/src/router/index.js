@@ -7,6 +7,7 @@ import LogIn from '../views/LogIn.vue'
 import MyAccount from '../views/MyAccount.vue'
 import Prediction from '../views/Prediction.vue'
 import Result from '../views/Result.vue'
+import ResultList from '../views/ResultList.vue'
 const routes = [
   {
     path: '/',
@@ -46,6 +47,11 @@ const routes = [
     name: 'results',
     component: Result,
     props: (route) => ({ predictions: route.params.predictions }),
+  },
+  {
+    path: '/resultslist',
+    name: 'resultslist',
+    component: ResultList,
   }
 ]
 

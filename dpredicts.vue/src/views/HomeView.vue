@@ -52,7 +52,7 @@ export default {
   components: {  
   },
   mounted(){
-    document.title = 'Home | Djackets'
+    document.title = 'Home | ACTCLINICA'
   },
   methods: {
   }

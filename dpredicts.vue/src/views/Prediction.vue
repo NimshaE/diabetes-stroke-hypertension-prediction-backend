@@ -9,9 +9,9 @@
           </div>
           <div class="right-panel">
             <div class="centered-form">
-              <div class="column predict-form">
+              <div class="column transparent-form">
                 <h1 class="title">Predict</h1>
-                <h5>Please enter patient data</h5>
+                <h5 class="subhead">Please enter patient data</h5>
 
                 <form @submit.prevent="predict">
                   <div class="field">
@@ -120,6 +120,9 @@ export default {
         console.error('Prediction failed:', error);
       }
     },
+  }, 
+  mounted(){
+    document.title = 'Predict | ACTCLINICA'
   },
 };
 </script>
@@ -144,41 +147,5 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-}
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-.left-panel {
-  width: 30%;
-  background-color: rgba(255, 255, 255, 0.5);
-  height: 100%;
-}
-.centered-panel-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-.right-panel {
-  width: 70%;
-}
-.centered-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-.predict-form {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 20px;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 400px;
 }
 </style>
