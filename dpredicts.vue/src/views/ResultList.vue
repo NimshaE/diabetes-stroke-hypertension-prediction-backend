@@ -62,16 +62,15 @@
     data() {
       return {
         results: [],
-        fromDate: '', // Add fromDate and toDate properties
+        fromDate: '', 
         toDate: '',
       };
     },
     mounted() {
-      // Fetch the records from the Django API endpoint
       axios
         .get('/api/v1/results/')
         .then((response) => {
-          this.results = response.data; // Update the results data
+          this.results = response.data;
         })
         .catch((error) => {
           console.error('Error fetching results:', error);
@@ -88,11 +87,8 @@
         return `${year}-${month}-${day} ${hours}:${minutes}`;
       },
       filterResults() {
-            // Convert the selected date strings to Date objects
             const fromDate = new Date(this.fromDate);
             const toDate = new Date(this.toDate);
-
-            // Filter results within the date range
             this.results = this.results.filter((result) => {
             const resultDate = new Date(result.prediction_timestamp);
             return resultDate >= fromDate && resultDate <= toDate;
@@ -130,7 +126,7 @@
     background-color: none;
 }
 .right-panel {
-  margin: 40px; /* Add margins as per your preference */
+  margin: 40px;
 }
   .result-table {
 
@@ -156,18 +152,18 @@
   .date-filter {
   display: flex;
   align-items: center;
-  margin-bottom: 20px; /* Adjust margin as needed */
+  margin-bottom: 20px; 
 }
 
 label {
-  margin-right: 10px; /* Add spacing between labels and input fields */
+  margin-right: 10px;
 }
 
 input[type="date"] {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  margin-right: 10px; /* Add spacing between input fields and buttons */
+  margin-right: 10px;
 }
 .date-filter button {
   border-radius: 25px;

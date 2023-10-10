@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'HomeView',
   data(){
@@ -53,8 +51,6 @@ export default {
   },
   mounted(){
     document.title = 'Home | ACTCLINICA'
-  },
-  methods: {
   }
 }
 </script>

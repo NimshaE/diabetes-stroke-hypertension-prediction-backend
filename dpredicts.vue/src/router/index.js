@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: '/sign-up',
@@ -47,11 +47,17 @@ const routes = [
     name: 'results',
     component: Result,
     props: (route) => ({ predictions: route.params.predictions }),
+    meta: {
+      requireLogin: true
+    }
   },
   {
     path: '/result-list',
     name: 'ResultsList',
     component: ResultList,
+    meta: {
+      requireLogin: true
+    }
   }
 ]
 

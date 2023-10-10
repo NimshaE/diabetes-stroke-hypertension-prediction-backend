@@ -64,8 +64,8 @@ export default {
     return {
       parsedPredictions: {},
       currentDateTime: "",
-      patientName: '', // Initialize patientName as an empty string
-      note: '', // Initialize note as an empty string
+      patientName: '', 
+      note: '', 
     };
   },
   created() {
@@ -87,7 +87,6 @@ export default {
       this.currentDateTime = now.toLocaleDateString('en-US', options);
     },
     submitForm() {
-      // Create a data object with the patientName, note, and currentDateTime
       const data = {
         patient_name: this.patientName,
         note: this.note,
@@ -97,18 +96,13 @@ export default {
         prediction_timestamp: this.currentDateTime,
       };
 
-      // Send a POST request to your Django backend to save the data
       axios
         .post('/api/v1/results/', data)
         .then((response) => {
-          // Handle success, e.g., show a success message or redirect
           console.log('Data saved successfully:', response.data);
-
-          // Redirect to the Prediction.vue page
-          this.$router.push({ name: 'Prediction' }); // Make sure 'prediction' matches the name of your router
+          this.$router.push({ name: 'Prediction' }); 
         })
         .catch((error) => {
-          // Handle error, e.g., show an error message
           console.error('Error saving data:', error);
         });
     },
