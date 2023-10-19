@@ -5,9 +5,8 @@ import pickle
 import logging
 class PredictionsViewSet(viewsets.ViewSet):
     def create(self, request):
-
+        logger = logging.getLogger("predict")
         serializer = InputDataSerializer(data=request.data)
-
         if serializer.is_valid():
             input_data = [[serializer.validated_data[field] for field in serializer.fields]]
             with open('actclinica_model', 'rb') as model_file:

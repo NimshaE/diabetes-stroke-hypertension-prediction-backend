@@ -17,7 +17,17 @@
                         <form @submit.prevent="submitForm">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" placeholder="Username" class="input" v-model="username">
+                                    <input type="text" placeholder="Fullname" class="input" v-model="username">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" placeholder="Center Name" class="input" v-model="centerName">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="email" placeholder="Email" class="input" v-model="email">
                                 </div>
                             </div>
                             <div class="field">
@@ -47,7 +57,7 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <button class="button">Sign In with Google</button>
+                                    <button class="button">Sign Up with Google</button>
                                 </div>
                             </div>
                         </form>
@@ -68,7 +78,10 @@ export default {
             username: '',
             password: '',
             password2: '',
-            errors: []
+            centerName: '',
+            email: '',
+            errors: [],
+            showPassword: false,
         }
     },
     methods: {
@@ -76,7 +89,7 @@ export default {
             this.errors = []
 
             if (this.username === '') {
-                this.errors.push('The username is missing')
+                this.errors.push('The Fullname is missing')
             }
 
             if (this.password === '') {
@@ -86,11 +99,18 @@ export default {
             if (this.password !== this.password2) {
                 this.errors.push('The passwords doesn\'t match')
             }
-
+            if (this.centerName === '') {
+                this.errors.push('Centre name is required');
+            }
+            if (this.email === '' || !this.isValidEmail(this.email)) {
+                this.errors.push('Invalid or missing email');
+            }
             if (!this.errors.length) {
                 const formData = {
                     username: this.username,
-                    password: this.password
+                    password: this.password,
+                    centerName: this.centerName,
+                    email: this.email
                 }
 
                 axios
@@ -121,6 +141,10 @@ export default {
                         }
                     })
             }
+        },
+        isValidEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailRegex.test(email);
         }
     }
 }

@@ -5,14 +5,18 @@
                 <div class="centered-panel-content">
                     <h1>ACTCLINICA</h1>
                     <h5>To a better life</h5>
-
-                    <router-link to="/result-list" class="navbar-item">Reports</router-link>
                     <template v-if="$store.state.isAuthenticated">
-                      <router-link to="/my-account" class="button is-light">My account</router-link>
-                    </template>
-                    <template v-else>
-                        <router-link to="/log-in"><button class="button">Log Out</button></router-link>
-                    </template>
+                    <h5><router-link to="/prediction">Predict</router-link></h5>
+                  </template>
+                  <template v-if="$store.state.isAuthenticated">
+                    <h5><router-link to="/result-list">Report</router-link></h5>
+                  </template>
+                  <template v-if="$store.state.isAuthenticated">
+                    <h5><router-link to="/my-account">My account</router-link></h5>
+                  </template>
+                  <template v-else>
+                      <h5><router-link to="/log-in">Log Out</router-link></h5>
+                  </template>
                 </div>
             </div>
             <div class="right-panel">

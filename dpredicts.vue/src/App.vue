@@ -79,6 +79,7 @@ html, body {
   border-radius: 15px;
   width: 80%;
   max-width: 400px;
+  margin: 0 auto;
 }
 .content {
   display: flex;
@@ -95,21 +96,59 @@ html, body {
 .centered-panel-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center; 
+  text-align: left;
   height: 100%;
+}
+.field.is-grouped {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field.is-grouped .control {
+  flex: 1; 
+  margin-right: 10px;
+}
+
+.field.is-grouped .control:last-child {
+  margin-right: 0; 
 }
 .right-panel {
   width: 70%;
 }
-.input{
+.input,
+.custom-select {
   border-radius: 20px;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  outline: none; /* Remove the default focus outline */
+  background-color: white; /* Add a background color to avoid browser defaults */
+}
+/* Define custom focus styles for input and select */
+.input:focus,
+.custom-select:focus {
+  border: 1px solid #2F80ED; /* Add a custom border on focus */
+}
+.input.custom-select select {
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0; 
+  outline: none;
+}
+.input.custom-select select:focus {
+  border: none;
 }
 .button {
   border-radius: 25px;
   color: white;
   background-color: #2F80ED;
   width: 100%;
+  margin-top: 10px;
 }
 .button:hover {
   border-radius: 25px;

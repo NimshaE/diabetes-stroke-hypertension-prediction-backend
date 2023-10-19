@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'predict',
-    'results',
+    'results'
 ]
 
 
