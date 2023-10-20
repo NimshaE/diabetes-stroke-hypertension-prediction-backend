@@ -17,7 +17,7 @@
                         <form @submit.prevent="submitForm">
                             <div class="field">
                                 <div class="control">
-                                    <input type="text" placeholder="Fullname" class="input" v-model="username">
+                                    <input type="text" placeholder="Username" class="input" v-model="username">
                                 </div>
                             </div>
                             <div class="field">

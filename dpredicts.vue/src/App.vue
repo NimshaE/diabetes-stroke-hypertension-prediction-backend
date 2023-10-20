@@ -143,6 +143,59 @@ html, body {
 .input.custom-select select:focus {
   border: none;
 }
+.input.custom-select select + .custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Style the dropdown arrow */
+.input.custom-select select + .custom-dropdown::after {
+  content: '\25BC'; /* Use a down-pointing arrow character */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #333; /* Arrow color */
+}
+
+/* Style the dropdown option panel when it's opened */
+.input.custom-select select:active + .custom-dropdown::after,
+.input.custom-select select:focus + .custom-dropdown::after {
+  color: #2F80ED; /* Change the arrow color when the dropdown is active or focused */
+}
+
+/* Style the custom dropdown option list (ul element) */
+.custom-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a box shadow for a dropdown effect */
+  border-radius: 0 0 10px 10px; /* Add rounded corners at the bottom */
+}
+
+/* Style the custom dropdown options (li elements) */
+.custom-dropdown ul li {
+  padding: 10px;
+  font-size: 14px;
+  color: #333; /* Text color */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Style the custom dropdown options on hover */
+.custom-dropdown ul li:hover {
+  background-color: #2F80ED; /* Change the background color on hover */
+  color: white; /* Change the text color on hover */
+}
+
+/* Style the selected option in the dropdown */
+.custom-dropdown ul li.selected {
+  background-color: #2F80ED; /* Change the background color of the selected option */
+  color: white; /* Change the text color of the selected option */
+}
+/* */
 .button {
   border-radius: 25px;
   color: white;

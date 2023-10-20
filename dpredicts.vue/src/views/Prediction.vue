@@ -28,11 +28,30 @@
                 <form @submit.prevent="predict">
                   <div class="field is-grouped">
                       <div class="control">
-                          <input type="text" placeholder="Age" class="input" v-model="formData.age">
+                        Age Group
+                          <div class="input custom-select">
+                            <select v-model="formData.age" required>
+                                <option value="" disabled selected>Select Age Group</option>
+                                <option value="one">18-24</option>
+                                <option value="two">25-29</option>
+                                <option value="three">30-34</option>
+                                <option value="four">35-39</option>
+                                <option value="five">40-44</option>
+                                <option value="six">45-49</option>
+                                <option value="seven">50-54</option>
+                                <option value="eight">55-59</option>
+                                <option value="nine">60-64</option>
+                                <option value="ten">65-69</option>
+                                <option value="eleven">70-74</option>
+                                <option value="twelve">75-79</option>
+                                <option value="thirteen">80+</option>
+                            </select>
+                        </div>
                       </div>
                       <div class="control">
+                        Gender
                         <div class="input custom-select">
-                            <select v-model="formData.sex">
+                            <select v-model="formData.sex" required>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
@@ -41,19 +60,22 @@
                   </div>
                   <div class="field is-grouped">
                     <div class="control">
+                      Cholesterol Status
                       <div class="input custom-select">
-                            <select v-model="formData.highChol">
+                            <select v-model="formData.highChol" required>
                                 <option value="high">High</option>
                                 <option value="low">Low</option>
                             </select>
                       </div>
                     </div>
                     <div class="control">
-                          <input type="text" placeholder="BMI" class="input" v-model="formData.bmi">
+                      BMI
+                          <input type="text" class="input" v-model="formData.bmi" required>
                     </div>
                   </div>
                   <div class="field is-grouped">
                       <div class="control">
+                        Smoking Status
                         <div class="input custom-select">
                               <select v-model="formData.smoker">
                                   <option value="yes">Yes</option>
@@ -62,8 +84,9 @@
                         </div>
                       </div>
                       <div class="control">
+                        History of Heart Disease
                         <div class="input custom-select">
-                              <select v-model="formData.heartDiseaseorAttack">
+                              <select v-model="formData.heartDiseaseorAttack" required>
                                   <option value="yes">Yes</option>
                                   <option value="no">No</option>
                               </select>
@@ -72,36 +95,53 @@
                   </div>
                   <div class="field is-grouped">
                       <div class="control">
+                        Physical Exercises
                         <div class="input custom-select">
-                              <select v-model="formData.physActivity">
+                              <select v-model="formData.physActivity" required>
                                   <option value="yes">Yes</option>
                                   <option value="no">No</option>
                               </select>
                         </div>
                       </div>
                       <div class="control">
+                        Alcohol Consumption
                         <div class="input custom-select">
-                              <select v-model="formData.hvyAlcoholConsump">
-                                  <option value="yes">Yes</option>
-                                  <option value="no">No</option>
+                              <select v-model="formData.hvyAlcoholConsump" required>
+                                  <option value="yes">High</option>
+                                  <option value="no">Low</option>
                               </select>
                         </div>
                       </div>
                   </div>
                   <div class="field is-grouped">
                       <div class="control">
+                        General Health
                         <div class="input custom-select">
-                              <select v-model="formData.genHlth">
-                                  <option value="weak">Weak</option>
-                                  <option value="low">Low</option>
-                                  <option value="neutral">Neutral</option>
-                                  <option value="good">Good</option>
-                                  <option value="High">High</option>
+                              <select v-model="formData.genHlth" required>
+                                <option value="weak">Weak</option>
+                                <option value="low">Low</option>
+                                <option value="neutral">Neutral</option>
+                                <option value="good">Good</option>
+                                <option value="high">High</option>
                               </select>
                         </div>
                       </div>
                       <div class="control">
-                          <input type="text" placeholder="Mentalhealth" class="input" v-model="formData.mentHlth">
+                        Mental Health
+                        <div class="input custom-select">
+                          <select v-model="formData.mentHlth" required>
+                            <option value="extreme">Extreme Distress</option>
+                            <option value="severe">Severe Mental Concerns</option>
+                            <option value="moderate">Moderate Mental Concerns</option>
+                            <option value="some">Some Challenges</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="good">Good Mentality</option>
+                            <option value="verygood">Very Good Mentality</option>
+                            <option value="excellent">Excellent Mentality</option>
+                            <option value="peak"> Peak Mentality</option>
+                            <option value="perfect">Perfect Mentality</option>
+                          </select>
+                        </div>
                       </div>
                   </div>
                   <div class="field">
@@ -147,74 +187,52 @@ export default {
       // Helper function to check if a value is a valid integer
       return /^\d+$/.test(value);
     },
-    mapAgeToGroup(age) {
-      if (age >= 18 && age <= 24) {
-        return 1;
-      } else if (age >= 25 && age <= 29) {
-        return 2;
-      }
-      else if (age >= 25 && age <= 29) {
-        return 3;
-      }
-      else if (age >= 30 && age <= 34) {
-        return 4;
-      }
-      else if (age >= 35 && age <= 39) {
-        return 5;
-      }
-      else if (age >= 40 && age <= 44) {
-        return 6;
-      }
-      else if (age >= 45 && age <= 49) {
-        return 7;
-      }
-      else if (age >= 50 && age <= 54) {
-        return 8;
-      }
-      else if (age >= 55 && age <= 59) {
-        return 9;
-      }
-      else if (age >= 60 && age <= 64) {
-        return 10;
-      }
-      else if (age >= 65 && age <= 69) {
-        return 11;
-      }
-      else if (age >= 70 && age <= 74) {
-        return 12;
-      }
-      else if (age >= 75 && age <= 80) {
-        return 13;
-      }
-      if (age > 80)
-      {
-        return 14;
-      }
+    mapAgeToGroup(selected) {
+      const valueMapping = {
+        'one': 1,
+        'two': 2,
+        'three': 3,
+        'four': 4,
+        'five': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9,
+        'ten': 10,
+        'eleven': 11,
+        'twelve': 12,
+        'thirteen': 13,
+      };
+      return valueMapping[selected];
     },
     mapGenHlthValue(selectedValue) {
-      // Define a mapping from selected values to numeric values (1 to 5)
       const valueMapping = {
         'weak': 1,
         'low': 2,
         'neutral': 3,
         'good': 4,
-        'High': 5,
+        'high': 5,
       };
-
-      // Map the selected value to a numeric value
       return valueMapping[selectedValue];
+    },
+    mapMenHlthValue(option) {
+      const valueMapping = {
+        'extreme': 1,
+        'severe': 2,
+        'moderate': 3,
+        'some': 4,
+        'neutral': 5,
+        'good': 6,
+        'verygood': 7,
+        'excellent': 8,
+        'peak': 9,
+        'perfect': 10,
+      };
+      return valueMapping[option];
     },
     async predict() {  
       
       this.formError = '';
-
-      if (!this.formData.age) {
-        this.ageError = 'Age is required.';
-      } else if (!this.isValidInteger(this.formData.age)) {
-        this.ageError = 'Age must be an integer.';
-      } else {
-        this.ageError = '';
-      }
 
       if (!this.formData.bmi) {
         this.bmiError = 'BMI is required.';
@@ -224,16 +242,8 @@ export default {
         this.bmiError = '';
       }
 
-      if (!this.formData.mentHlth) {
-        this.mentHlthError = 'Mental health is required.';
-      } else if (!this.isValidInteger(this.formData.mentHlth)) {
-        this.mentHlthError = 'Mental health must be an integer.';
-      } else {
-        this.mentHlthError = '';
-      }
-
       // Check if any errors occurred, and if so, don't proceed with the Axios request
-      if (this.ageError || this.bmiError || this.mentHlthError) {
+      if (this.bmiError) {
         this.formError = 'Please fix the errors in the form.';
         return;
       }
@@ -244,10 +254,9 @@ export default {
       const heartValue = this.formData.heartDiseaseorAttack === 'yes' ? 1 : 0;
       const phyValue = this.formData.physActivity === 'yes' ? 1 : 0;
       const alcoValue = this.formData.hvyAlcoholConsump === 'yes' ? 1 : 0;
-      const ageGroup = this.mapAgeToGroup(this.formData.age);
 
       const formData = {
-        Age: this.formData.age,
+        Age: this.mapAgeToGroup(this.formData.age),
         Sex: sexValue, 
         HighChol: cholValue,
         BMI: this.formData.bmi,
@@ -256,7 +265,7 @@ export default {
         PhysActivity: phyValue,
         HvyAlcoholConsump: alcoValue,
         GenHlth: this.mapGenHlthValue(this.formData.genHlth),
-        MentHlth: this.formData.mentHlth
+        MentHlth: this.mapMenHlthValue(this.formData.mentHlth)
       };
       try {
         const response = await axios.post('/api/v1/predictions/', formData);
@@ -293,5 +302,4 @@ html, body {
     width: 100%;
     height: 100%;
 }
-
 </style>
