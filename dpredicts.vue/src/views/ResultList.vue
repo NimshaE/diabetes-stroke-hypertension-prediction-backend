@@ -92,7 +92,6 @@
       },
       filterResults() {
                 if (!this.fromDate || !this.toDate) {
-                // Add some error handling or feedback to the user
                 return;
             }
             const fromDate = new Date(this.fromDate);

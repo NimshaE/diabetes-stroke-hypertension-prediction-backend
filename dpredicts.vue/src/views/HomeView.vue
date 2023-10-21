@@ -20,7 +20,6 @@
                       </div>
                     </router-link>
                       
-                      
                       <div class="or-container">
                           <hr class="hr-line">
                           <span class="or-text">Or</span>

@@ -215,16 +215,16 @@ export default {
     },
     mapMenHlthValue(option) {
       const valueMapping = {
-        'extreme': 1,
-        'severe': 2,
-        'moderate': 3,
-        'some': 4,
-        'neutral': 5,
-        'good': 6,
-        'verygood': 7,
-        'excellent': 8,
-        'peak': 9,
-        'perfect': 10,
+        'extreme': 10,
+        'severe': 9,
+        'moderate': 8,
+        'some': 7,
+        'neutral': 6,
+        'good': 5,
+        'verygood': 4,
+        'excellent': 3,
+        'peak': 2,
+        'perfect': 1,
       };
       return valueMapping[option];
     },
@@ -239,8 +239,7 @@ export default {
       } else {
         this.bmiError = '';
       }
-
-      // Check if any errors occurred, and if so, don't proceed with the Axios request
+      
       if (this.bmiError) {
         this.formError = 'Please fix the errors in the form.';
         return;
