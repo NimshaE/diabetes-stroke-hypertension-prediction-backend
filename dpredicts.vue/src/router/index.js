@@ -8,6 +8,8 @@ import MyAccount from '../views/MyAccount.vue'
 import Prediction from '../views/Prediction.vue'
 import Result from '../views/Result.vue'
 import ResultList from '../views/ResultList.vue'
+import ForgotPassword from '../views/ForgotPassword.vue'
+import UpdatePassword from '../views/UpdatePassword.vue'
 const routes = [
   {
     path: '/',
@@ -58,6 +60,16 @@ const routes = [
     meta: {
       requireLogin: true
     }
+  },
+  {
+    path: '/forgotpassword',
+    name: 'ForgotPassword',
+    component: ForgotPassword,
+  },
+  {
+    path: '/update-password',
+    name: 'UpdatePassword',
+    component: UpdatePassword,
   }
 ]
 

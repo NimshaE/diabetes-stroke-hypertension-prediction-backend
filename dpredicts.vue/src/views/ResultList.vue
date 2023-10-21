@@ -12,7 +12,7 @@
                     <h5><router-link to="/result-list">Report</router-link></h5>
                   </template>
                   <template v-if="$store.state.isAuthenticated">
-                    <h5><router-link to="/my-account">My account</router-link></h5>
+                    <h5><router-link to="/my-account">My Account</router-link></h5>
                   </template>
                   <template v-else>
                       <h5><router-link to="/log-in">Log Out</router-link></h5>

@@ -12,7 +12,7 @@
                     <h5><router-link to="/result-list">Report</router-link></h5>
                   </template>
                   <template v-if="$store.state.isAuthenticated">
-                    <h5><router-link to="/my-account">My account</router-link></h5>
+                    <h5><router-link to="/my-account">My Account</router-link></h5>
                   </template>
                   <template v-else>
                       <h5><router-link to="/log-in">Log Out</router-link></h5>
@@ -31,7 +31,6 @@
                         Age Group
                           <div class="input custom-select">
                             <select v-model="formData.age" required>
-                                <option value="" disabled selected>Select Age Group</option>
                                 <option value="one">18-24</option>
                                 <option value="two">25-29</option>
                                 <option value="three">30-34</option>
@@ -184,7 +183,6 @@ export default {
   },
   methods: {
     isValidInteger(value) {
-      // Helper function to check if a value is a valid integer
       return /^\d+$/.test(value);
     },
     mapAgeToGroup(selected) {

@@ -29,13 +29,16 @@
                                 <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
                             </div>
 
+                            <div class="signup-link" >
+                                Forgot Password? &nbsp;<router-link to="/forgotpassword">Click here</router-link>
+                            </div>
                             <div class="field">
                                 <div class="control">
                                     <button class="button">Sign In</button>
                                 </div>
                             </div>
                             <div class="signup-link" >
-                                New here?&nbsp;<router-link to="/sign-up">click here</router-link>
+                                New here?&nbsp;<router-link to="/sign-up">Click here</router-link> 
                             </div>
                             <div class="or-container">
                                 <hr class="hr-line">
