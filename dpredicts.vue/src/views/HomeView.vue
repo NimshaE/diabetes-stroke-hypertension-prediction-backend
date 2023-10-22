@@ -20,7 +20,6 @@
                       </div>
                     </router-link>
                       
-                      
                       <div class="or-container">
                           <hr class="hr-line">
                           <span class="or-text">Or</span>
@@ -41,8 +40,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'HomeView',
   data(){
@@ -52,9 +49,7 @@ export default {
   components: {  
   },
   mounted(){
-    document.title = 'Home | Djackets'
-  },
-  methods: {
+    document.title = 'Home | ACTCLINICA'
   }
 }
 </script>
